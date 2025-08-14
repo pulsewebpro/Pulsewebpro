@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulsewebpro — Tu web en 2 minutos</title>
+<meta name="description" content="Crea tu web escribiéndome como a una amiga. Demo personalizada en 2 minutos. Descarga por 5€, mejora a 39€ o publícala automáticamente por 50€/mes.">
+<style>
+:root{--primary:#6C5CE7;--bg:#0b0b10}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#fff}
+a{color:inherit;text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:28px}
+.nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.logo{display:flex;align-items:center;gap:10px}
+.badge{display:inline-block;background:#13131b;border:1px solid #242438;padding:6px 10px;border-radius:999px;font-size:12px;opacity:.9}
+.btn{background:var(--primary);color:#fff;border:0;padding:12px 16px;border-radius:12px;font-weight:700;cursor:pointer}
+.btn-ghost{background:#12121a;border:1px solid #242438}
+.section{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center}
+.card{background:#11111a;border:1px solid #242438;border-radius:16px;padding:16px}
+label{font-size:13px;opacity:.85}input,select{width:100%;background:#0e0e15;color:#fff;border:1px solid #242438;border-radius:10px;padding:10px 12px;margin:6px 0}
+.grid{display:grid;gap:10px}
+iframe{width:100%;height:520px;border:0;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.3)}
+h1{font-size:42px;margin:8px 0 10px}h2{font-size:24px;margin:10px 0}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.plan{background:#101018;border:1px solid #222234;border-radius:16px;padding:16px}
+.plan h3{margin:0 0 6px}.small{opacity:.85;font-weight:600}
+.kicker{opacity:.9}
+.water{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+footer{margin-top:30px;border-top:1px solid #1e1e2a;opacity:.8;padding:18px 0;font-size:14px}
+@media(max-width:940px){.section{grid-template-columns:1fr}.plans{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="container nav">
+  <div class="logo"><img src="./assets/img/logo.svg" alt="Pulsewebpro" height="32"><span class="badge">Demo instantánea</span></div>
+  <a class="btn btn-ghost" href="#planes">Ver planes</a>
+</header>
+
+<main class="container section">
+  <div class="grid">
+    <h1>Escríbelo como a una amiga.<br>Recíbelo como un pro.</h1>
+    <p class="kicker">Tu web personalizada en <b>2 minutos</b>. La ves antes de pagar. Descárgala (5€), mejora con botones (39€) o publícala automáticamente (50€/mes) en <b>tu subdominio</b>.</p>
+
+    <div class="card grid" id="wizard">
+      <label>1) Nombre + frase</label>
+      <input id="w-name" placeholder="Mi proyecto">
+      <input id="w-tag" placeholder="Una frase que te defina">
+      <label>2) Estilo y color</label>
+      <select id="w-style">
+        <option value="moderno">Moderno con color</option>
+        <option value="minimal">Minimal limpio</option>
+        <option value="elegante">Elegante oscuro</option>
+        <option value="urbano">Urbano/Gamer</option>
+      </select>
+      <input id="w-color" placeholder="#6C5CE7 o 'azul eléctrico'">
+      <label>3) ¿Qué pasa al primer clic?</label>
+      <select id="w-goal">
+        <option value="sell">Comprar</option>
+        <option value="book">Reservar</option>
+        <option value="whatsapp">WhatsApp</option>
+        <option value="subscribe">Suscribirse</option>
+        <option value="community">Comunidad</option>
+      </select>
+      <div>
+        <button id="w-generate" class="btn">Generar demo</button>
+        <button id="w-reset" class="btn btn-ghost">Reset</button>
+      </div>
+      <small>La demo lleva <b>marca de agua</b>. Al pagar se quita y te entregamos tu ZIP o la publicamos.</small>
+    </div>
+
+    <section id="planes" class="plans">
+      <div class="plan">
+        <h3>Demo <span class="small">(5€)</span></h3>
+        <p>ZIP 1-página con <b>texto original</b> y tus colores (hero + features + CTA).</p>
+        <a id="buy-demo" class="btn btn-ghost" href="#">Activar pago (Stripe)</a>
+      </div>
+      <div class="plan">
+        <h3>Plus <span class="small">(39€)</span></h3>
+        <p>Activa <b>botones</b> (comprar / reservar / WhatsApp), galería, testimonios y FAQ.</p>
+        <a id="buy-plus" class="btn btn-ghost" href="#">Activar pago (Stripe)</a>
+      </div>
+      <div class="plan">
+        <h3>Auto (Hosting) <span class="small">(50€/mes)</span></h3>
+        <p>Publicación automática en <b>subdominio.pulsewebpro.com</b> con pagos y formularios.</p>
+        <a id="buy-auto" class="btn btn-ghost" href="#">Activar pago (Stripe)</a>
+      </div>
+    </section>
+  </div>
+
+  <div style="position:relative">
+    <iframe id="preview" srcdoc="<!doctype html><html><head><meta charset='utf-8'><style>body{margin:0;font-family:Inter,system-ui;background:#0b0b10;color:#fff}header{background:linear-gradient(120deg,#6C5CE7,#00D4FF);padding:60px 24px}h1{margin:0;font-size:36px}p{opacity:.9}section{padding:24px}button{padding:10px 14px;border-radius:10px;border:0;background:#111;color:#fff}footer{padding:24px;border-top:1px solid #222;opacity:.8}</style></head><body><header><h1>Tu web está casi lista</h1><p>Esta es tu demo con marca de agua.</p></header><section><h3>Lo que haces</h3><p>Aquí irá un texto corto, original y con tu estilo.</p><button>CTA principal</button></section><footer>© Pulsewebpro</footer></body></html>"></iframe>
+    <div class="water"><div style="transform:rotate(-18deg);font-weight:800;font-size:40px;color:#ffffff12;border:4px solid #ffffff14;padding:16px 28px;border-radius:18px">PULSEWEBPRO • DEMO</div></div>
+  </div>
+</main>
+
+<footer class="container">
+  <div>© <span id="y"></span> Pulsewebpro · Hecho con cariño y mucha IA.</div>
+</footer>
+
+<script>
+const y=new Date().getFullYear();document.getElementById('y').textContent=y;
+const STRIPE_DEMO="#";const STRIPE_PLUS="#";const STRIPE_AUTO="#";
+document.getElementById('buy-demo').href=STRIPE_DEMO;
+document.getElementById('buy-plus').href=STRIPE_PLUS;
+document.getElementById('buy-auto').href=STRIPE_AUTO;
+
+function updatePreview(name, tag, style, color, goal){
+  const primary = (color && color.startsWith('#'))? color : '#6C5CE7';
+  const heading = name||'Tu proyecto';
+  const tagline = tag||'Una frase que te defina';
+  const cta = {sell:'Comprar ahora',book:'Reservar',whatsapp:'WhatsApp',subscribe:'Suscribirse',community:'Entrar'}[goal||'sell'];
+  const bg = style==='elegante' ? '#0a0a0f' : '#0b0b10';
+  const src = `<!doctype html><html><head><meta charset='utf-8'><style>
+    body{margin:0;font-family:Inter,system-ui;background:${bg};color:#fff}
+    header{background:linear-gradient(120deg, ${primary}, #00D4FF);padding:60px 24px}
+    h1{margin:0;font-size:36px}p{opacity:.9}section{padding:24px}
+    button{padding:10px 14px;border-radius:10px;border:0;background:#111;color:#fff}
+    .badge{display:inline-block;margin-top:12px;border:1px solid #ffffff33;border-radius:999px;padding:6px 10px;font-size:12px}
+    footer{padding:24px;border-top:1px solid #222;opacity:.8}
+  </style></head><body>
+    <header><h1>${heading}</h1><p>${tagline}</p><span class='badge'>Demo personalizada</span></header>
+    <section><h3>Lo que haces</h3><p>Texto generado para tu proyecto según tus respuestas. Esto es una muestra.</p><button>${cta}</button></section>
+    <footer>© ${y} Pulsewebpro</footer>
+  </body></html>`;
+  document.getElementById('preview').srcdoc=src;
+}
+document.getElementById('w-generate').onclick=()=>{
+  updatePreview(
+    document.getElementById('w-name').value,
+    document.getElementById('w-tag').value,
+    document.getElementById('w-style').value,
+    document.getElementById('w-color').value,
+    document.getElementById('w-goal').value
+  );
+};
+document.getElementById('w-reset').onclick=()=>{
+  document.getElementById('w-name').value='';
+  document.getElementById('w-tag').value='';
+  document.getElementById('w-color').value='';
+  updatePreview('','','moderno','#6C5CE7','sell');
+};
+</script>
+</body>
+</html>

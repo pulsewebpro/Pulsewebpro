@@ -1,0 +1,11 @@
+<svg width="220" height="40" viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7C5CFF"/>
+      <stop offset="1" stop-color="#00D4FF"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="6" rx="8" ry="8" width="28" height="28" fill="url(#g)"/>
+  <circle cx="16" cy="20" r="6" fill="#0b0b10"/>
+  <text x="40" y="27" font-family="Inter,Segoe UI,Arial" font-size="22" fill="white" font-weight="700">Pulsewebpro</text>
+</svg>
