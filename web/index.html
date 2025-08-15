@@ -5,7 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>PulseWebPro — Tu web lista antes de que se enfríe el café ☕</title>
   <meta name="description" content="Crea tu web en 1 minuto con 3 preguntas. Prueba gratis y planes simples.">
+  <!-- Etiquetas SEO básicas -->
+  <meta property="og:title" content="PulseWebPro — Crea tu web en 1 minuto">
+  <meta property="og:description" content="Genera tu web profesional en tiempo récord con inteligencia artificial. ¡Tu web lista antes de que se enfríe tu café!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pulsewebpro.com">
+  <!-- Opcional: imagen de vista previa OG (se puede añadir más adelante) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <!-- Favicon para la marca -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     /* Variables & Reset */
     :root{
@@ -112,25 +120,29 @@
         <span class="badge" style="background:var(--green);color:#001014;font-size:12px;padding:4px 8px;border-radius:999px;">Demo</span>
         <h3>ZIP web estática</h3>
         <div class="price">5€</div>
-        <p>Descarga un ZIP con la web estática generada por IA a partir de tu demo. Sin botones de compra.</p>
-        <button class="btn stripe-btn" data-plan="demo"><span>Pagar 5€</span></button>
+        <p>Obtén un ZIP con la web estática generada por IA (HTML/CSS) basado en tu demo. Ideal para ver tu diseño sin botones de compra.</p>
+        <!-- Botón de pago con enlace Revolut. Abre en pestaña nueva -->
+        <a class="btn" href="https://revolut.me/pulsewebpro" target="_blank" rel="noopener"><span>Pagar 5€</span></a>
         <p class="note" style="font-size:12px;color:var(--muted);margin-top:8px;">Placeholder Stripe.</p>
       </div>
       <div class="plan">
         <span class="badge" style="background:linear-gradient(180deg,#14f195,#00f0ff);color:#001014;font-size:12px;padding:4px 8px;border-radius:999px;">Plus</span>
         <h3>ZIP con botones</h3>
         <div class="price">39€</div>
-        <p>ZIP listo para subir con botones funcionales (comprar, reservar, WhatsApp, email, etc.) según lo que pidas en la demo.</p>
-        <button class="btn stripe-btn" data-plan="plus"><span>Pagar 39€</span></button>
+        <p>ZIP listo para subir con <strong>botones funcionales</strong> (comprar, reservar, WhatsApp, email…) según lo que pidas en la demo. Tu web lista para funcionar.</p>
+        <!-- Botón de pago Plus con enlace Revolut -->
+        <a class="btn" href="https://revolut.me/pulsewebpro" target="_blank" rel="noopener"><span>Pagar 39€</span></a>
         <p class="note" style="font-size:12px;color:var(--muted);margin-top:8px;">Placeholder Stripe.</p>
       </div>
       <div class="plan">
         <span class="badge" style="background:var(--green);color:#001014;font-size:12px;padding:4px 8px;border-radius:999px;">Auto</span>
         <h3>Subdominio + cambios</h3>
         <!-- Precio del plan Auto (suscripción mensual) -->
-        <div class="price">59€/mes</div>
-        <p>Publicación automática en subdominio nuestro, cambios ilimitados por chat y soporte como si hablaras con un diseñador en vivo.</p>
-        <button class="btn stripe-btn" data-plan="auto"><span>Suscribirme 59€/mes</span></button>
+        <!-- Plan Auto: actualización de precio y texto -->
+        <div class="price">50€/mes</div>
+        <p>Publicación automática en subdominio propio, <strong>hosting</strong> incluido y <strong>cambios ilimitados por chat</strong>. Soporte como si hablaras con un diseñador en vivo.</p>
+        <!-- Botón de suscripción Auto con enlace Revolut (50€/mes) -->
+        <a class="btn" href="https://revolut.me/pulsewebpro" target="_blank" rel="noopener"><span>Suscribirme 50€/mes</span></a>
         <p class="note" style="font-size:12px;color:var(--muted);margin-top:8px;">Placeholder Stripe.</p>
       </div>
     </div>
@@ -155,12 +167,13 @@
           <ul style="margin:8px 0 0 18px;font-size:14px;">
             <li><strong>5€:</strong> ZIP con web estática (HTML/CSS). Sin botones de compra.</li>
             <li><strong>39€:</strong> ZIP listo para subir con botones funcionales (comprar, reservar, WhatsApp, email…).</li>
-            <!-- Precio del plan Auto actualizado a 59€/mes -->
-            <li><strong>59€/mes:</strong> Publicación en subdominio y cambios ilimitados por chat.</li>
+            <!-- Precio del plan Auto actualizado a 50€/mes -->
+            <li><strong>50€/mes:</strong> Publicación en subdominio propio con hosting, cambios ilimitados por chat y soporte continuo.</li>
           </ul>
         </div>
         <div class="after" id="afterPreview" hidden>
-          <a class="btn stripe-btn" data-plan="auto" href="#planes"><span>Empezar ahora — 59€/mes</span></a>
+          <!-- CTA para suscripción Auto: enlace Revolut -->
+          <a class="btn" href="https://revolut.me/pulsewebpro" target="_blank" rel="noopener"><span>Empezar ahora — 50€/mes</span></a>
           <a class="btn" href="#planes"><span>Ver otros planes</span></a>
         </div>
       </div>
@@ -168,7 +181,16 @@
   </section>
 
   <footer>
-    © <span id="year"></span> PulseWebPro. Todos los derechos reservados.
+    <div style="padding:24px 0; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; font-size:14px; border-top:1px solid var(--line);">
+      <span>© <span id="year"></span> PulseWebPro</span>
+      <nav style="display:flex; gap:16px; flex-wrap:wrap; font-size:14px;">
+        <a href="privacy.html">Política de privacidad</a>
+        <a href="terms.html">Términos</a>
+        <a href="legal.html">Aviso legal</a>
+        <a href="mailto:soporte@pulsewebpro.com">Contacto</a>
+      </nav>
+      <span style="color:var(--muted); font-size:12px; flex-basis:100%;">Tus respuestas se usan solo para la demo. No compartimos tus datos.</span>
+    </div>
   </footer>
 
   <script>
@@ -240,26 +262,20 @@
       if(step===2) answers.descripcion = text;
       input.value = '';
       step++;
-      if(step < prompts.length){ setTimeout(()=> addBubble(prompts[step],'bot'), 300); }
-      else { setTimeout(finish, 300); input.disabled=true; this.querySelector('button').disabled=true; }
-    });
-    document.querySelectorAll('.stripe-btn').forEach(btn=>{
-      btn.addEventListener('click',e=>{
-        e.preventDefault();
-        const plan = btn.dataset.plan;
-        let msg;
-        if(plan==='demo'){
-          msg='Stripe placeholder: pagarás 5€ y recibirás un ZIP con la web estática.';
-        }else if(plan==='plus'){
-          msg='Stripe placeholder: pagarás 39€ y recibirás un ZIP listo con botones funcionales.';
-        }else{
-          // Mensaje del plan Auto (suscripción mensual)
-          msg='Stripe placeholder: suscripción 59€/mes para publicación automática y cambios ilimitados por chat.';
+      if(step < prompts.length){
+        // Si estamos a punto de hacer la tercera pregunta, personalízala según el tipo de web
+        if(step === 2){
+          const tipo = answers.tipo || '';
+          prompts[2] = `📝 Describe brevemente tu ${tipo} en una frase (p. ej. "${tipo} en Madrid con enfoque único").`;
         }
-        alert(msg + '\nLa entrega se hará manualmente al principio.');
-        console.log('Intento de pago', plan, answers);
-      });
+        setTimeout(()=> addBubble(prompts[step],'bot'), 300);
+      }else{
+        setTimeout(finish, 300);
+        input.disabled=true;
+        this.querySelector('button').disabled=true;
+      }
     });
+    // Ya no interceptamos clics en botones de Stripe, porque usamos enlaces externos a Revolut
     window.addEventListener('load',()=>{
       document.getElementById('year').textContent = new Date().getFullYear();
       addBubble('⚡️ Bienvenido a PulseWebPro. Demo en menos de 60 segundos.','bot');
