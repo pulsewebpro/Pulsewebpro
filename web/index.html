@@ -127,6 +127,7 @@
       <div class="plan">
         <span class="badge" style="background:var(--green);color:#001014;font-size:12px;padding:4px 8px;border-radius:999px;">Auto</span>
         <h3>Subdominio + cambios</h3>
+        <!-- Precio del plan Auto (suscripción mensual) -->
         <div class="price">59€/mes</div>
         <p>Publicación automática en subdominio nuestro, cambios ilimitados por chat y soporte como si hablaras con un diseñador en vivo.</p>
         <button class="btn stripe-btn" data-plan="auto"><span>Suscribirme 59€/mes</span></button>
@@ -154,6 +155,7 @@
           <ul style="margin:8px 0 0 18px;font-size:14px;">
             <li><strong>5€:</strong> ZIP con web estática (HTML/CSS). Sin botones de compra.</li>
             <li><strong>39€:</strong> ZIP listo para subir con botones funcionales (comprar, reservar, WhatsApp, email…).</li>
+            <!-- Precio del plan Auto actualizado a 59€/mes -->
             <li><strong>59€/mes:</strong> Publicación en subdominio y cambios ilimitados por chat.</li>
           </ul>
         </div>
@@ -251,6 +253,7 @@
         }else if(plan==='plus'){
           msg='Stripe placeholder: pagarás 39€ y recibirás un ZIP listo con botones funcionales.';
         }else{
+          // Mensaje del plan Auto (suscripción mensual)
           msg='Stripe placeholder: suscripción 59€/mes para publicación automática y cambios ilimitados por chat.';
         }
         alert(msg + '\nLa entrega se hará manualmente al principio.');
