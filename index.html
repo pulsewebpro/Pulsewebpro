@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PulseWebPro — Tu web lista antes de que se enfríe el café ☕</title>
+  <meta name="description" content="Crea tu web profesional en 1 minuto con IA. Responde 3 preguntas, mira la vista previa y publica. Plan Demo 5€, Plus 39€, Auto 59€/mes (20% dto anual).">
+  <meta property="og:title" content="PulseWebPro — Tu web lista antes de que se enfríe el café ☕">
+  <meta property="og:description" content="Responde 3 preguntas y obtén tu web profesional en 1 minuto.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.pulsewebpro.com/">
+  <meta property="og:image" content="/og.jpg">
+  <meta name="theme-color" content="#0b0f14">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Ccircle cx='64' cy='64' r='60' fill='%2300f5ff'/%3E%3Cpath d='M28 68h18l6-18 8 36 8-24h14c10 0 10-16 0-16H85c-3 0-6 2-7 5l-4 12-8-34c-1-4-7-4-9 0l-8 25H28c-10 0-10 14 0 14Z' fill='%23001a22'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0a0d12; --bg-2:#0c1118; --card:rgba(15,19,26,0.6);
+      --text:#e9f5ff; --muted:#a6bed3; --line:rgba(255,255,255,0.08);
+      --cyan:#00f5ff; --violet:#9d4edd; --blue:#2ab3ff; --ok:#14f195; --danger:#ff6b6b;
+      --radius:16px; --shadow:0 14px 48px rgba(0,245,255,.12);
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 70% -10%, rgba(0,245,255,.08), transparent 60%),
+        radial-gradient(900px 600px at -10% 40%, rgba(157,78,221,.10), transparent 60%),
+        var(--bg);
+      letter-spacing:.2px;
+    }
+    a{color:var(--cyan);text-decoration:none}
+    .wrap{width:min(1160px,92vw);margin:0 auto}
+    header{
+      position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+      background:linear-gradient(180deg,rgba(10,13,18,.9),rgba(10,13,18,.35)); border-bottom:1px solid var(--line);
+    }
+    .row{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.4px}
+    .logo{
+      width:40px;height:40px;border-radius:50%;position:relative;isolation:isolate;
+      background: radial-gradient(circle at 60% 40%, #00f5ff, transparent 60%),
+                  radial-gradient(circle at 40% 60%, #9d4edd, transparent 60%), #0b0f14;
+      box-shadow:inset 0 0 36px rgba(0,245,255,.35), 0 0 22px rgba(0,245,255,.25);
+    }
+    nav a{color:var(--muted);font-weight:600;padding:8px 12px;border-radius:12px;border:1px solid transparent}
+    nav a:hover{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.03)}
+    .btn{
+      --px:18px;--py:12px;
+      display:inline-flex;align-items:center;gap:10px;padding:var(--py) var(--px);
+      background:linear-gradient(180deg, rgba(0,245,255,.18), rgba(157,78,221,.18));
+      border:1px solid rgba(0,245,255,.38);border-radius:999px;color:var(--text);font-weight:800;text-transform:uppercase;letter-spacing:.6px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+    }
+    .btn:hover::before{animation:sweep 1.2s ease}
+    .btn::before{content:"";position:absolute;inset:-2px;border-radius:inherit;background:linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);transform:translateX(-120%)}
+    @keyframes sweep{to{transform:translateX(120%)}}
+
+    /* HERO */
+    .hero{position:relative;overflow:clip;border-bottom:1px solid var(--line)}
+    .hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:32px;padding:72px 0 36px}
+    h1{font-family:"Space Grotesk",Inter,sans-serif;font-size:clamp(34px,5vw,64px);line-height:1.05;margin:6px 0 10px;font-weight:800}
+    .lead{color:var(--muted);font-size:clamp(16px,2.6vw,20px);line-height:1.6;margin-bottom:22px}
+    .eyebrow{color:var(--cyan);font-weight:900;text-transform:uppercase;letter-spacing:1.5px;font-size:12px}
+    .hero-cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .meta{display:flex;align-items:center;gap:16px;margin-top:14px;color:var(--muted);font-size:13px}
+
+    /* Banner estilo "onda-taza" */
+    .banner{
+      position:relative;border:1px solid var(--line);border-radius:20px;padding:18px;background:rgba(255,255,255,.02);
+      box-shadow:0 18px 50px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.03);
+    }
+    .scene{
+      height:280px;border-radius:14px;position:relative;overflow:hidden;background:
+        radial-gradient(800px 300px at 10% 10%, rgba(0,245,255,.14), transparent 60%),
+        radial-gradient(800px 300px at 90% 90%, rgba(157,78,221,.12), transparent 60%),
+        #0d131b;
+      border:1px solid var(--line);
+    }
+    .cup{position:absolute;right:32px;bottom:26px;width:84px;height:84px;border-radius:12px;border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));display:grid;place-items:center;color:var(--muted);font-size:12px}
+    .glow{
+      position:absolute;left:-10%;top:60%;width:130%;height:2px;
+      background:linear-gradient(90deg,transparent,rgba(0,245,255,.9),transparent);filter:blur(.4px);animation:slide 3s linear infinite;
+    }
+    @keyframes slide{to{transform:translateX(16%)}}
+    .swirl{
+      position:absolute;left:32px;bottom:28px;width:42%;height:42%;
+      background: radial-gradient(circle at 0% 100%, rgba(0,245,255,.65), transparent 40%),
+                  radial-gradient(circle at 40% 30%, rgba(157,78,221,.55), transparent 42%),
+                  radial-gradient(circle at 60% 60%, rgba(0,245,255,.45), transparent 45%);
+      filter:blur(24px);opacity:.9;animation:breath 4.2s ease-in-out infinite;
+    }
+    @keyframes breath{50%{transform:translateY(-6px) scale(1.05);opacity:1}}
+
+    /* Cómo funciona */
+    .section{padding:56px 0}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;backdrop-filter:blur(12px)}
+    .idx{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;font-weight:900;background:linear-gradient(180deg,rgba(0,245,255,.22),rgba(157,78,221,.18));border:1px solid rgba(0,245,255,.35)}
+    .card h3{margin:12px 0 4px;font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+
+    /* Chat */
+    .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    .panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;backdrop-filter:blur(10px)}
+    .chat{display:flex;flex-direction:column;gap:10px}
+    .bubble{max-width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+    .bubble.bot{background:linear-gradient(180deg,rgba(0,245,255,.06),rgba(255,255,255,.02));border-color:rgba(0,245,255,.25)}
+    .input{display:flex;gap:10px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:10px}
+    .input input{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-size:15px}
+    .input button{background:linear-gradient(180deg,rgba(0,245,255,.25),rgba(157,78,221,.25));border:1px solid rgba(0,245,255,.4);color:var(--text);padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:700}
+    .progress{height:6px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}
+    .bar{height:100%;width:0%;background:linear-gradient(90deg,var(--cyan),var(--violet));transition:width .4s ease}
+
+    /* Preview */
+    .preview{border:1px solid var(--line);border-radius:16px;padding:12px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0))}
+    .browser{display:flex;gap:8px;padding:8px 10px;border-bottom:1px solid var(--line)}
+    .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.12)}
+    .fake-hero{height:160px;border-radius:12px;margin:10px 0;position:relative;background:radial-gradient(400px 200px at 30% 30%, rgba(0,245,255,.18), transparent), #0e141b;border:1px solid var(--line)}
+    .fake-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+    .fake-card{height:80px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+    .placeholder{display:grid;place-items:center;height:240px;border:1px dashed rgba(255,255,255,.18);border-radius:14px;color:var(--muted);font-weight:700}
+
+    /* Precios */
+    .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .price{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;position:relative;overflow:hidden}
+    .price h4{margin:0 0 6px;font-size:18px}
+    .price .num{font-size:32px;font-weight:900}
+    .price .old{color:#8aa6b9;text-decoration:line-through;margin-left:6px;font-size:14px}
+    .badge{position:absolute;right:14px;top:14px;font-size:12px;background:linear-gradient(180deg,rgba(0,245,255,.22),rgba(157,78,221,.18));border:1px solid rgba(0,245,255,.35);padding:6px 10px;border-radius:999px;font-weight:800}
+    .price ul{margin:12px 0 0 16px;color:var(--muted);font-size:14px}
+    .price .cta{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+
+    /* CTA bar */
+    .cta-bar{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:center;background:linear-gradient(180deg,rgba(0,245,255,.06),rgba(255,255,255,.02));border:1px solid rgba(0,245,255,.2);border-radius:20px;padding:18px;margin-top:36px}
+
+    /* Footer */
+    footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 0;color:var(--muted);font-size:14px}
+    footer a{color:var(--muted)}
+    .legal a{margin-right:12px}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero .wrap{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .steps,.prices,.cta-bar{grid-template-columns:1fr}
+      .scene{height:240px}
+    }
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{animation:none!important;transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap row">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>PulseWebPro</span>
+      </div>
+      <nav>
+        <a href="#como">Cómo funciona</a>
+        <a href="#demo">Demo</a>
+        <a href="#planes">Planes</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn" href="#demo" aria-label="Probar ahora">
+        <span>Probar ahora</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Diseño premium · Simplicidad total</div>
+        <h1>Tu web lista antes de que se enfríe el café ☕</h1>
+        <p class="lead">Responde 3 preguntas y obtén tu web profesional generada por IA en 1 minuto. Sin editores. Sin menús. Pulse lo hace por ti.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#demo"><span>Probar ahora</span></a>
+          <a class="btn" href="#planes"><span>Ver planes</span></a>
+        </div>
+        <div class="meta"><small>Tiempo medio a demo: &lt; 60s</small> · <small>Prueba gratis sin tarjeta</small></div>
+      </div>
+
+      <div class="banner" aria-label="Animación hero">
+        <div class="scene">
+          <div class="swirl" aria-hidden="true"></div>
+          <div class="glow" aria-hidden="true"></div>
+          <div class="cup">☕</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo funciona -->
+  <section id="como" class="section">
+    <div class="wrap">
+      <h2 style="margin:0 0 8px; font-family:'Space Grotesk',Inter; font-size:28px;">Cómo funciona</h2>
+      <p class="lead" style="margin-top:0">Una pantalla. Tres preguntas. Publica.</p>
+      <div class="steps">
+        <div class="card">
+          <div class="idx">1</div>
+          <h3>Responde 3 preguntas</h3>
+          <p>Nombre, tipo de web y una frase que te defina. Pulse entiende el contexto.</p>
+        </div>
+        <div class="card">
+          <div class="idx">2</div>
+          <h3>Mira la vista previa</h3>
+          <p>Recibe una demo visual (PNG) con estilo premium. Sin pagar todavía.</p>
+        </div>
+        <div class="card">
+          <div class="idx">3</div>
+          <h3>Publica en 1 clic</h3>
+          <p>Elige plan. Recibe ZIP o publicamos automáticamente en un subdominio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo: chat + preview -->
+  <section id="demo" class="section">
+    <div class="wrap grid">
+      <!-- Chat -->
+      <div class="panel">
+        <h3 style="margin:0 0 8px;">Habla con Pulse</h3>
+        <div class="progress" aria-label="Progreso preguntas"><div id="pbar" class="bar"></div></div>
+        <div id="chat" class="chat" style="margin-top:12px;">
+          <div class="bubble bot">Hola, soy Pulse 🤖✨. Te creo la web en nada. ¿Cómo se llama tu negocio o proyecto?</div>
+        </div>
+        <div class="input" style="margin-top:8px;">
+          <input id="inp" type="text" placeholder="Escribe aquí..." />
+          <button id="send">Enviar</button>
+        </div>
+        <div class="meta" style="margin-top:8px;"><small>Quedan <b id="left">3</b> mensajes gratis · Tus respuestas se usan solo para la demo.</small></div>
+      </div>
+
+      <!-- Preview fake -->
+      <div class="panel">
+        <h3 style="margin:0 0 8px;">Vista previa</h3>
+        <div class="preview">
+          <div class="browser"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+          <div id="ph" class="placeholder">Vista previa de tu web aquí</div>
+          <div id="fake">
+            <div class="fake-hero"></div>
+            <div class="fake-grid">
+              <div class="fake-card"></div><div class="fake-card"></div><div class="fake-card"></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="#planes">Ver planes</a>
+          <a class="btn" href="https://revolut.me/" target="_blank" rel="noopener">Pagar por Revolut</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Planes -->
+  <section id="planes" class="section">
+    <div class="wrap">
+      <h2 style="margin:0 0 8px; font-family:'Space Grotesk',Inter; font-size:28px;">Planes y precios</h2>
+      <p class="lead" style="margin-top:0">Claridad total. Sin líos, sin letra pequeña.</p>
+      <div class="prices">
+        <div class="price">
+          <div class="badge">Demo</div>
+          <h4>Demo — PNG</h4>
+          <div class="num">5€</div>
+          <ul>
+            <li>PNG de vista previa generado por IA (PULSE)</li>
+            <li>ZIP estático básico (HTML/CSS/JS)</li>
+            <li>Sin botones de compra</li>
+          </ul>
+          <div class="cta">
+            <a class="btn" href="https://buy.stripe.com/test_demoXXXX" target="_blank" rel="noopener">Comprar</a>
+          </div>
+        </div>
+
+        <div class="price">
+          <div class="badge">Más vendido</div>
+          <h4>Plus — ZIP listo</h4>
+          <div class="num">39€</div>
+          <ul>
+            <li>ZIP con botones funcionales (comprar, reservar, WhatsApp, email)</li>
+            <li>Estructura completa según lo pedido en la demo</li>
+            <li>Guía paso a paso</li>
+          </ul>
+          <div class="cta">
+            <a class="btn" href="https://buy.stripe.com/test_plusXXXX" target="_blank" rel="noopener">Comprar</a>
+          </div>
+        </div>
+
+        <div class="price">
+          <div class="badge">Pro</div>
+          <h4>Auto — Hosting</h4>
+          <div class="num">59€<span style="font-size:14px">/mes</span> <span class="old">69€</span></div>
+          <ul>
+            <li>Publicación automática en subdominio</li>
+            <li>Cambios ilimitados por chat</li>
+            <li>Soporte prioritario</li>
+          </ul>
+          <div class="cta">
+            <a class="btn" href="https://buy.stripe.com/test_autoXXXX" target="_blank" rel="noopener">Suscribirme</a>
+            <small style="color:var(--muted)">20% de descuento pagando anual</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-bar">
+        <div><b>Prueba gratis:</b> Haz la demo, mira tu web en PNG y decide sin compromiso.</div>
+        <div style="text-align:right"><a class="btn" href="#demo">Probar ahora</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="wrap">
+      <h2 style="margin:0 0 12px; font-family:'Space Grotesk',Inter; font-size:28px;">Preguntas frecuentes</h2>
+      <details class="panel"><summary>¿Mis respuestas del chat se guardan?</summary><p class="lead" style="font-size:15px">Solo si aceptas enviar la demo. Puedes borrar tus datos escribiendo a soporte.</p></details>
+      <details class="panel"><summary>¿La entrega es automática?</summary><p class="lead" style="font-size:15px">Hoy podemos entregar manualmente tras el pago (rápido). Estamos automatizando todo el flujo.</p></details>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <div>© <span id="y"></span> PulseWebPro</div>
+      <div class="legal">
+        <a href="/privacy.html">Privacidad</a>
+        <a href="/terms.html">Términos</a>
+        <a href="mailto:soporte@pulsewebpro.com">soporte@pulsewebpro.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // CONFIG — pon aquí tus enlaces reales cuando los tengas
+    window.STRIPE = {
+      demo: "https://buy.stripe.com/test_demoXXXX",
+      plus: "https://buy.stripe.com/test_plusXXXX",
+      auto: "https://buy.stripe.com/test_autoXXXX"
+    };
+    // Opcional: endpoint de Google Apps Script para leads
+    window.LEADS_ENDPOINT = ""; // p.ej. "https://script.google.com/macros/s/XXXXX/exec"
+
+    // Año footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Chat mínimo 3 preguntas con progreso y actualización de preview
+    const chat = document.getElementById('chat');
+    const inp = document.getElementById('inp');
+    const btn = document.getElementById('send');
+    const left = document.getElementById('left');
+    const pbar = document.getElementById('pbar');
+    const ph = document.getElementById('ph');
+    const fake = document.getElementById('fake');
+
+    let step = 0;
+    let data = {name:"", type:"", desc:""};
+
+    const prompts = [
+      "Genial. ¿Qué tipo de web necesitas? (restaurante, tienda, servicios…)",
+      "Perfecto. Describe tu proyecto en una frase.",
+      "Listo. ¿Quieres que guardemos la demo para enviarte el ZIP?"
+    ];
+
+    function add(msg, who="user"){
+      const b = document.createElement('div');
+      b.className = 'bubble ' + (who === "bot" ? 'bot' : '');
+      b.textContent = msg;
+      chat.appendChild(b);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function progress(){
+      const done = Math.min(step, 3);
+      left.textContent = String(Math.max(0, 3 - done));
+      pbar.style.width = (done/3*100) + "%";
+    }
+
+    function updatePreview(){
+      ph.style.display = 'none';
+      fake.style.display = 'block';
+      const title = data.name || "Tu Marca";
+      const desc = data.desc || "Descripción en una frase aquí";
+      let overlay = document.getElementById('ov');
+      if(!overlay){
+        overlay = document.createElement('div');
+        overlay.id = "ov";
+        overlay.style.position = "absolute";
+        overlay.style.left = "16px";
+        overlay.style.top = "16px";
+        overlay.style.right = "16px";
+        overlay.style.color = "#e9f5ff";
+        overlay.style.fontWeight = "800";
+        overlay.style.fontSize = "22px";
+        overlay.style.textShadow = "0 4px 24px rgba(0,0,0,.5)";
+        fake.querySelector('.fake-hero').appendChild(overlay);
+      }
+      overlay.innerHTML = title + "<div style='font-size:14px;font-weight:600;color:#a6bed3;margin-top:6px'>" + desc + "</div>";
+    }
+
+    async function saveLead(eventName){
+      if(!window.LEADS_ENDPOINT) return;
+      try{
+        await fetch(window.LEADS_ENDPOINT, {
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body: JSON.stringify({
+            name: data.name, type: data.type, desc: data.desc,
+            ab: "hero", event: eventName, ts: Date.now()
+          })
+        });
+      }catch(e){}
+    }
+
+    btn.addEventListener('click', () => {
+      const v = (inp.value || "").trim();
+      if(!v) return;
+      add(v, "user");
+      if(step === 0){ data.name = v; add(prompts[0], "bot"); updatePreview(); }
+      if(step === 1){ data.type = v; add(prompts[1], "bot"); updatePreview(); }
+      if(step === 2){ data.desc = v; updatePreview(); add(prompts[2], "bot"); }
+      if(step === 3){
+        add("¡Hecho! Mira la vista previa y elige un plan cuando quieras. 👇", "bot");
+        saveLead("lead_submitted");
+      }
+      step++;
+      progress();
+      inp.value = "";
+    });
+
+    inp.addEventListener('keydown', e => { if(e.key === 'Enter') btn.click(); });
+
+    // Reemplaza botones Stripe si definiste URLs en window.STRIPE
+    for (const [k,url] of Object.entries(window.STRIPE||{})){
+      if(!url) continue;
+      const map = {demo:"test_demoXXXX", plus:"test_plusXXXX", auto:"test_autoXXXX"};
+      const sel = `a[href*="${map[k]}"]`;
+      const a = document.querySelector(sel);
+      if(a) a.href = url;
+    }
+  </script>
+</body>
+</html>
